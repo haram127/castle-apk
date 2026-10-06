@@ -45,7 +45,53 @@
     @media(max-width:780px){.container{width:min(100% - 28px,1180px)}.nav-inner{height:64px}.nav-links{display:none}.brand{font-size:.93rem}.nav-cta{display:none}.hero{padding:58px 0 100px}.hero-grid{grid-template-columns:1fr;gap:44px}.hero-copy{text-align:center}.hero-desc{margin-inline:auto}.info-grid{text-align:left}.hero-download{width:min(330px,100%)}.hero-visual{min-height:560px}.phone{width:280px;transform:rotate(2deg)}.float-chip.hd{left:7%}.float-chip.live{right:5%}.stats-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2)::after{display:none}.stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.1)}.section{padding:78px 0}.features{grid-template-columns:1fr}.experience{grid-template-columns:1fr;gap:36px}.experience-copy .section-head{margin-bottom:0}.cinema-frame{order:-1}.version-grid{grid-template-columns:1fr}.feature{padding:25px}.shots{gap:10px}.shot-phone{border-radius:26px;padding:5px}.shot-phone::before{top:7px;height:13px}.shot-screen{border-radius:21px}.shot:nth-child(2) .shot-phone{width:100%}.shot h3{font-size:.83rem}.shot p{display:none}.install-layout{grid-template-columns:1fr}.install-card{position:static}.proscons{grid-template-columns:1fr}.footer-top{flex-direction:column}.mobile-bar{display:flex;position:fixed;z-index:90;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));padding:8px 9px 8px 15px;border:1px solid rgba(240,180,41,.25);border-radius:18px;background:rgba(12,11,9,.93);box-shadow:0 18px 45px rgba(0,0,0,.5);backdrop-filter:blur(16px);align-items:center;justify-content:space-between;gap:10px;color:#fff}.mobile-bar span{font-size:.78rem;font-weight:800}.mobile-bar .btn{min-height:42px;padding:0 16px;font-size:.78rem}.toast{bottom:92px}}
     @media(max-width:520px){h1{font-size:clamp(3.3rem,18vw,4.6rem)}.info-grid{grid-template-columns:1fr 1fr}.info{padding:10px 8px}.info-icon{display:none}.info strong{font-size:.68rem}.hero-visual{min-height:510px}.phone{width:252px}.float-chip.hd{left:0}.float-chip.live{right:0}.shots{gap:5px}.shot-phone{border-radius:18px;padding:4px}.shot-screen{border-radius:14px}.shot-phone::before{height:10px;top:6px}.shot h3{font-size:.72rem;margin-top:12px}.section-head{margin-bottom:34px}.table-shell{border:0;box-shadow:none;background:transparent}table,tbody,tr,td{display:block}thead{display:none}tbody{display:grid;gap:10px}tbody tr{padding:14px 16px;border:1px solid var(--line);border-radius:13px;background:var(--card)!important}td{border:0;padding:3px 0;display:flex;justify-content:space-between;gap:14px}td::before{content:attr(data-label);font-size:.69rem;color:#a47813;text-transform:uppercase;letter-spacing:.06em;font-weight:800}td:first-child{display:none}.cta{padding:55px 20px}.footer-links div{gap:12px 16px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.orb,.btn-gold::after{animation:none}.reveal{opacity:1;transform:none;transition:none}.faq-a{transition:none}.btn,.feature{transition:none}}
-  .imgb{position:absolute;top:0;left:0;height:100%;width:100%;background-repeat:no-repeat;background-size:cover;background-position:center top;background-color:#0a0a12;}.imgb.pbanner{background-position:center center;}.brand-logo{width:38px;height:38px;border-radius:10px;object-fit:cover;background:#0e2a4a;}.footer-logo{width:44px;height:44px;border-radius:12px;object-fit:cover;background:#0e2a4a;margin-bottom:10px;}.js-hero{background:#0a0a12;}.cinema-frame{position:relative;overflow:hidden;}</style>
+  .imgb{position:absolute;top:0;left:0;height:100%;width:100%;background-repeat:no-repeat;background-size:cover;background-position:center top;background-color:#0a0a12;}.imgb.pbanner{background-position:center center;}.brand-logo{width:38px;height:38px;border-radius:10px;object-fit:cover;background:#0e2a4a;}.footer-logo{width:44px;height:44px;border-radius:12px;object-fit:cover;background:#0e2a4a;margin-bottom:10px;}.js-hero{background:#0a0a12;}.cinema-frame{position:relative;overflow:hidden;}
+/* ===== Hero phone animation ===== */
+@keyframes heroFloat{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-16px) rotate(.5deg)}}
+.phone{animation:heroFloat 7s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+.phone-glow{animation:glowPulse 7s ease-in-out infinite}
+.hero-visual::after{content:"";position:absolute;top:8%;left:50%;width:120px;height:60%;transform:translateX(-50%) skewX(-8deg);background:linear-gradient(180deg,transparent,rgba(255,255,255,.06),transparent);pointer-events:none;animation:shineSweep 7s ease-in-out infinite}
+@keyframes shineSweep{0%,100%{opacity:0;transform:translateX(-90%) skewX(-8deg)}50%{opacity:1;transform:translateX(30%) skewX(-8deg)}}
+
+/* ===== Pros & cons premium redesign ===== */
+.proscons{gap:26px}
+.pc-card{position:relative;overflow:hidden;padding:36px 34px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,#fff, #fdfbf4);box-shadow:0 18px 50px rgba(34,27,6,.08);transition:transform .35s ease,box-shadow .35s ease}
+.pc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px}
+.pc-card.pros::before{background:linear-gradient(90deg,#22c55e,#86efac)}
+.pc-card.cons::before{background:linear-gradient(90deg,#ef4444,#fca5a5)}
+.pc-card:hover{transform:translateY(-7px);box-shadow:0 28px 65px rgba(34,27,6,.14)}
+.pc-head{margin-bottom:24px}
+.pc-icon{width:54px;height:54px;border-radius:18px}
+.pros .pc-icon{color:#15803d;background:linear-gradient(135deg,#dcfce7,#bbf7d0);box-shadow:0 10px 24px rgba(34,197,94,.28)}
+.cons .pc-icon{color:#b91c1c;background:linear-gradient(135deg,#fee2e2,#fecaca);box-shadow:0 10px 24px rgba(239,68,68,.25)}
+.pc-card h3{font-size:1.45rem;letter-spacing:-.01em}
+.pc-card ul{display:grid;gap:14px}
+.pc-card ul li{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:14px;background:rgba(0,0,0,.025);font-size:.99rem;line-height:1.55;transition:background .25s ease,transform .25s ease}
+.pc-card ul li:hover{background:rgba(0,0,0,.05);transform:translateX(4px)}
+.pc-card ul li svg{flex:none;width:21px;height:21px;margin-top:2px}
+.pros ul li svg{color:#16a34a}
+.cons ul li svg{color:#dc2626}
+
+/* ===== Screenshot phones polish ===== */
+.shot{transition:transform .4s ease}
+.shot:hover{transform:translateY(-10px) scale(1.02)}
+.shot:nth-child(2):hover{transform:translateY(-10px) scale(1.06)}
+.shot-screen{box-shadow:0 25px 60px rgba(0,0,0,.35);transition:box-shadow .4s ease}
+.shot:hover .shot-screen{box-shadow:0 35px 80px rgba(240,180,41,.25)}
+
+/* ===== Cinema frame polish ===== */
+.cinema-frame{border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.4);transition:transform .4s ease,box-shadow .4s ease}
+.cinema-frame:hover{transform:scale(1.015);box-shadow:0 40px 100px rgba(240,180,41,.22)}
+
+/* ===== FAQ polish ===== */
+.faq-item{transition:border-color .3s ease,box-shadow .3s ease}
+.faq-item:hover{border-color:rgba(240,180,41,.5)}
+.faq-item.open{box-shadow:0 14px 40px rgba(34,27,6,.08)}
+
+/* ===== Section headings polish ===== */
+.section-head .kicker{display:inline-block;padding:7px 18px;border-radius:100px;background:rgba(240,180,41,.12);border:1px solid rgba(240,180,41,.35);font-size:.8rem;letter-spacing:.14em;margin-bottom:14px}
+</style>
 <link rel="icon" class="js-favicon" type="image/webp"></head>
 <body>
   <nav class="nav" aria-label="Primary navigation"><div class="container nav-inner">
